@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--放大小相关 的文件-->
+<resources>
+    <dimen name="mainTitleFontSize">30sp</dimen>
+    <drawable name="background">@drawable/ludashi</drawable>
+    <drawable name="loginBackground">@drawable/loginbackground</drawable>
+</resources>

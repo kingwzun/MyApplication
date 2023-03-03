@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="mainTitle" >第一个App</string>
+    <string name="btnLoginTxt">登录</string>
+    <string name="btnRegisterTxt">注册</string>
+</resources>
