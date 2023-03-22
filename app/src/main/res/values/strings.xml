@@ -3,4 +3,8 @@
     <string name="mainTitle">第一个App</string>
     <string name="btnLoginTxt">登录</string>
     <string name="btnRegisterTxt">注册</string>
+    <string name="springTxt">春天</string>
+    <string name="summerTxt">夏天</string>
+    <string name="autumnTxt">秋天</string>
+    <string name="winterTxt">冬天</string>
 </resources>

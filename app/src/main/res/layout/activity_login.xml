@@ -5,6 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".LoginActivity">
+
+
 <ScrollView
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -13,7 +15,58 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+        <LinearLayout
 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/butSpring"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/springTxt">
+            </Button>
+            <Button
+                android:id="@+id/butSummer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/summerTxt">
+            </Button>
+            <Button
+                android:id="@+id/butAutumn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/autumnTxt">
+            </Button>
+            <Button
+                android:id="@+id/butWinter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/winterTxt">
+            </Button>
+
+        </LinearLayout>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            >
+            <ImageView
+                android:id="@+id/imgSpring"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"
+                android:src="@drawable/loginBackground">
+            </ImageView>
+            <ImageView
+                android:id="@+id/imgSummer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"
+                android:src="@drawable/ludashi">
+            </ImageView>
+        </FrameLayout>
+        
         <com.google.android.material.button.MaterialButton
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -210,5 +263,6 @@
             />
     </LinearLayout>
 </ScrollView>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
