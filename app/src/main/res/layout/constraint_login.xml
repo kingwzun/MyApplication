@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/loginTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/topMargin"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:text="@string/loginTitle"
+        android:textSize="@dimen/mainTitleFontSize"
+        />
+
+    <TextView
+        android:id="@+id/xm_lab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/topMargin"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/loginTitle"
+        android:text="@string/xm_lab"
+        android:textSize="@dimen/mainTitleFontSize"/>
+    <EditText
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/xm_lab"
+        app:layout_constraintBottom_toBottomOf="@id/xm_lab"
+        />
+    <TextView
+        android:id="@+id/mm_lab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/mm_lab"
+        app:layout_constraintTop_toBottomOf="@id/xm_lab"
+        app:layout_constraintLeft_toLeftOf="@id/xm_lab"
+        android:textSize="@dimen/mainTitleFontSize"/>
+    <!--        ltl选取xm_lab和parent都行，但是为了后续调整 选择了 xm_lab-->
+
+    <EditText
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@id/mm_lab"
+        app:layout_constraintBottom_toBottomOf="@id/mm_lab"
+        app:layout_constraintRight_toRightOf="parent"
+        />
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btnLoginTxt"
+        app:layout_constraintTop_toBottomOf="@id/mm_lab"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/btnRegister"
+        android:textSize="@dimen/mainTitleFontSize"
+        />
+    <Button
+        android:id="@+id/btnRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btnRegisterTxt"
+        app:layout_constraintTop_toTopOf="@id/btnLogin"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/btnLogin"
+        android:textSize="@dimen/mainTitleFontSize"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
