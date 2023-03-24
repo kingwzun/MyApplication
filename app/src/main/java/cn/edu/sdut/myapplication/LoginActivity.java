@@ -2,6 +2,7 @@ package cn.edu.sdut.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -12,15 +13,16 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
-//        Button btnLogin=findViewById(R.id.login_button);
-//        btnLogin.setOnClickListener(
-//                new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View v) {
-//                        Toast.makeText(LoginActivity.this,"看看这里", Toast.LENGTH_SHORT);
-//                    }
-//                }
-//        );
+        setContentView(R.layout.constraint_login);
+        Button btnLogin=findViewById(R.id.btnLogin);
+        btnLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LoginActivity.this,MainActivity.class);
+                startActivity(intent);
+//               关闭登录界面（点击返回按键不会再回到登陆界面）
+//                LoginActivity.this.finish();
+            }
+        });
     }
 }
