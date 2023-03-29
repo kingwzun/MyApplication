@@ -2,14 +2,24 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/loginBackground"
-    >
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/loginBackground">
 
+    <Chronometer
+        android:id="@+id/jishiqi"
+        app:layout_constraintRight_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
     <Button
+        android:id="@+id/btnDome"
+        android:layout_marginTop="@dimen/topMargin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/btnLoginTxt"
-        android:textSize="@dimen/mainTitleFontSize"
-        ></Button>
+        android:text="@string/btnSendSmsText"
 
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:textSize="@dimen/mainTitleFontSize"
+        />
 </androidx.constraintlayout.widget.ConstraintLayout>

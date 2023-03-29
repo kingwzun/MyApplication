@@ -10,4 +10,7 @@
     <string name="loginTitle">欢迎登陆</string>
     <string name="xm_lab">姓名：</string>
     <string name="mm_lab">密码：</string>
+    <string name="xm_hint">请输入姓名</string>
+    <string name="mm_hint">请输入密码</string>
+    <string name="btnSendSmsText">点击发送</string>
 </resources>

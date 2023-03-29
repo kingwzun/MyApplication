@@ -26,8 +26,12 @@
         android:text="@string/xm_lab"
         android:textSize="@dimen/mainTitleFontSize"/>
     <EditText
+        android:id="@+id/edit_xm"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:digits="1234567890"
+        android:inputType="phone"
+        android:hint="@string/xm_hint"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toRightOf="@id/xm_lab"
         app:layout_constraintBottom_toBottomOf="@id/xm_lab"
@@ -43,18 +47,54 @@
     <!--        ltl选取xm_lab和parent都行，但是为了后续调整 选择了 xm_lab-->
 
     <EditText
+        android:id="@+id/edit_mm"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:hint="@string/mm_hint"
+        android:inputType="textPassword"
         app:layout_constraintLeft_toRightOf="@id/mm_lab"
         app:layout_constraintBottom_toBottomOf="@id/mm_lab"
         app:layout_constraintRight_toRightOf="parent"
         />
+    <CheckBox
+        android:id="@+id/checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="是否记住密码"
+        app:layout_constraintTop_toBottomOf="@id/mm_lab"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:textSize="18sp"/>
+
+    <RadioGroup
+        android:id="@+id/usertype"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/topMargin"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mm_lab"
+        app:layout_constraintBottom_toTopOf="@id/btnLogin"
+        android:orientation="horizontal"
+        >
+        <RadioButton
+            android:id="@+id/rb_xs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="教师"/>
+        <RadioButton
+            android:id="@+id/rb_js"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="学生"/>
+
+    </RadioGroup>
     <Button
         android:id="@+id/btnLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/btnLoginTxt"
-        app:layout_constraintTop_toBottomOf="@id/mm_lab"
+        app:layout_constraintTop_toBottomOf="@id/usertype"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@id/btnRegister"
         android:textSize="@dimen/mainTitleFontSize"
@@ -68,5 +108,33 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toRightOf="@id/btnLogin"
         android:textSize="@dimen/mainTitleFontSize"/>
-
+    <ToggleButton
+        android:id="@+id/TgBtm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:textOff="关"
+        android:textOn="开"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="学校：山东理工大学\n联系电话：123455"
+        android:autoLink="phone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:textSize="@dimen/mainTitleFontSize"
+        />
+    <Button
+        android:id="@+id/btnSeasonDome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="四季"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        />
 </androidx.constraintlayout.widget.ConstraintLayout>
