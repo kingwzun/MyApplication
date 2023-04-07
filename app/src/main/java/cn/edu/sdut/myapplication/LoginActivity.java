@@ -8,6 +8,8 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
@@ -24,6 +26,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.constraint_login);
         Button btnLogin=findViewById(R.id.btnLogin);
+        Button btnView=findViewById(R.id.btnViewDome);
         EditText edit_xm=findViewById(R.id.edit_xm);
         EditText edit_mm = findViewById(R.id.edit_mm);
         ToggleButton toggle= findViewById(R.id.TgBtm);
@@ -38,6 +41,13 @@ public class LoginActivity extends AppCompatActivity {
                 if(isChecked){
                     Toast.makeText(LoginActivity.this,"记住密码", Toast.LENGTH_LONG);
                 }
+            }
+        });
+        btnView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(LoginActivity.this, WebViewActivity.class);
+                startActivity(intent);
             }
         });
         btnLogin.setOnClickListener(new View.OnClickListener() {
