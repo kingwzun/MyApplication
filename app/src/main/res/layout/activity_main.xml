@@ -5,15 +5,212 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
-    <TextView
-        android:background="@drawable/ludashi"
-        android:layout_width="190dp"
-        android:layout_height="162dp"
-        android:text="@string/mainTitle"
-        android:textSize="@dimen/mainTitleFontSize"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                app:cornerRadius="@dimen/mainTitleFontSize"
+                app:backgroundTint="@color/red"
+                android:layout_margin="10dp">
+            </com.google.android.material.button.MaterialButton>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+
+                android:text="People and pets"
+                android:textSize="@dimen/mainTitleFontSize"
+                >
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <android.widget.TextView
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:text="People and pets"
+                        android:layout_marginTop="10dp"
+                        />
+                    <android.widget.Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:stateListAnimator="@null"
+                        android:backgroundTint="@color/all_alpha"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:text="View all"
+                        />
+
+                </RelativeLayout>
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        >
+                        <LinearLayout
+                            android:layout_width="100dp"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:layout_marginLeft="20dp">
+                            <com.google.android.material.imageview.ShapeableImageView
+                                android:layout_width="100dp"
+                                android:layout_height="100dp"
+                                android:scaleType="centerCrop"
+                                app:strokeColor="@color/red"
+                                app:strokeWidth="4dp"
+                                android:padding="2dp"
+                                android:src="@drawable/loginBackground"
+                                app:shapeAppearance="@style/CircleStyle" />
+
+                            <Button
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:backgroundTint="@color/all_alpha"
+                                android:textColor="@color/black"
+                                style="?android:attr/borderlessButtonStyle"
+                                android:text="season"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="100dp"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:layout_marginLeft="20dp">
+                            <com.google.android.material.imageview.ShapeableImageView
+                                android:layout_width="100dp"
+                                android:layout_height="100dp"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/loginbackground"
+                                app:shapeAppearance="@style/CircleStyle" />
+                            <Button
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:backgroundTint="@color/all_alpha"
+                                android:textColor="@color/black"
+                                android:text="王文正"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="100dp"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:layout_marginLeft="20dp">
+                            <ImageView
+                                android:layout_width="100dp"
+                                android:layout_height="100dp"
+                                android:src="@mipmap/ic_launcher"
+                                >
+                            </ImageView>
+                            <Button
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:backgroundTint="@color/all_alpha"
+
+                                android:text="王文正"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="100dp"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:layout_marginLeft="20dp">
+                            <ImageView
+                                android:layout_width="100dp"
+                                android:layout_height="100dp"
+                                android:src="@mipmap/ic_launcher"
+                                >
+                            </ImageView>
+                            <Button
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:backgroundTint="@color/all_alpha"
+
+                                android:text="王文正"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="100dp"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:layout_marginLeft="20dp">
+                            <ImageView
+                                android:layout_width="100dp"
+                                android:layout_height="100dp"
+                                android:src="@mipmap/ic_launcher"
+                                >
+                            </ImageView>
+                            <Button
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:backgroundTint="@color/all_alpha"
+
+                                android:text="王文正"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </HorizontalScrollView>
+            </RelativeLayout>
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:layout_width="wrap_content"
+                android:layout_height="152dp"
+                android:layout_alignParentBottom="true"
+                android:background="@color/red"
+                android:src="@drawable/ludashi"
+                app:shapeAppearance="@style/RoundedStyle" />
+
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_margin="10dp"
+                android:paddingTop="100dp"
+                android:radius="20dp"
+                android:text="金额"
+                android:textSize="@dimen/mainTitleFontSize"
+                />
+            <Button
+                android:paddingTop="100dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/btnLoginTxt"
+                android:textSize="@dimen/mainTitleFontSize" />
+            <Button
+                android:paddingTop="100dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/btnLoginTxt"
+                android:textSize="@dimen/mainTitleFontSize"
+                />
+            <Button
+                android:paddingTop="100dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/btnLoginTxt"
+                android:textSize="@dimen/mainTitleFontSize"
+                />
+            <Button
+                android:paddingTop="100dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/btnLoginTxt"
+                android:textSize="@dimen/mainTitleFontSize"
+                />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/btnLoginTxt"
+                android:textSize="@dimen/mainTitleFontSize"
+                />
+        </LinearLayout>
+    </ScrollView>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         t1=System.currentTimeMillis();
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.login_layout);//R.类.名称
+        setContentView(R.layout.stuty_main_layout);//R.类.名称
         btnSendSms =findViewById(R.id.btnDome);
         jishiqi=findViewById(R.id.jishiqi);
         spinnerCourse=findViewById(R.id.spinner_course);

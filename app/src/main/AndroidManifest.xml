@@ -32,7 +32,14 @@
             android:name=".FrameLayoutActivity"
             android:exported="true">
         </activity>
-
+        <activity
+            android:name=".MyMainActivity"
+            android:exported="false">
+        </activity>
+        <activity
+            android:name=".MyTestActivity"
+            android:exported="false">
+        </activity>
 
     </application>
 
