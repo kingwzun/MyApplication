@@ -27,6 +27,8 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.constraint_login);
         Button btnLogin=findViewById(R.id.btnLogin);
         Button btnView=findViewById(R.id.btnViewDome);
+        Button btnSeasons=findViewById(R.id.btnSeasonDome);
+
         EditText edit_xm=findViewById(R.id.edit_xm);
         EditText edit_mm = findViewById(R.id.edit_mm);
         ToggleButton toggle= findViewById(R.id.TgBtm);
@@ -50,6 +52,9 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
+        //登录按钮动作
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -70,6 +75,15 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+        //四季按钮动作
+        btnSeasons.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //jump activity_seasons.xml
+                Intent intent=new Intent(LoginActivity.this,FrameLayoutActivity.class);
+                startActivity(intent);
+            }
+        });
         edit_xm.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
