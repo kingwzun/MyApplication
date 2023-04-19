@@ -22,6 +22,14 @@
         app:layout_constraintRight_toRightOf="parent"
         android:textSize="@dimen/mainTitleFontSize"
         />
+    <Button
+        android:id="@+id/btn_list_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
 
     <Spinner
         android:id="@+id/spinner_course"
@@ -33,6 +41,62 @@
         android:entries="@array/course"
 
         />
+
+    <Button
+        android:id="@+id/btn_single"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="sfsd"
+        app:layout_constraintTop_toBottomOf="@+id/btn_list_view"
+
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+    <Button
+        android:id="@+id/btn_multi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="btn_multi"
+        app:layout_constraintTop_toBottomOf="@+id/btn_single"
+
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+    <Button
+        android:id="@+id/btn_custom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="btn_custom"
+        app:layout_constraintTop_toBottomOf="@+id/btn_multi"
+
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+    <Button
+        android:id="@+id/btn_date_dialog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="btn_custom"
+        app:layout_constraintTop_toBottomOf="@+id/btn_custom"
+
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+    <Button
+        android:id="@+id/btn_time_dialog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="btn_custom"
+        app:layout_constraintTop_toBottomOf="@+id/btn_date_dialog"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+    <Button
+        android:id="@+id/btn_datetime_dialog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="btn_datetime"
+        app:layout_constraintTop_toBottomOf="@+id/btn_time_dialog"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

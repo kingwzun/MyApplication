@@ -24,7 +24,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".StudyMainActivity"
             android:exported="false">
 
         </activity>
@@ -40,7 +40,10 @@
             android:name=".MyTestActivity"
             android:exported="false">
         </activity>
-
+        <activity
+            android:name=".ListViewActivity"
+            android:exported="false">
+        </activity>
     </application>
 
 </manifest>

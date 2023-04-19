@@ -13,4 +13,7 @@
     <string name="xm_hint">请输入姓名</string>
     <string name="mm_hint">请输入密码</string>
     <string name="btnSendSmsText">点击发送</string>
+    <string name="text_label_1">For you</string>
+    <string name="text_label_2">Mine</string>
+    <string name="text_label_3">Media</string>
 </resources>
