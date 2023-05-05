@@ -2,18 +2,22 @@ package cn.edu.sdut.myapplication;
 
 import android.app.Activity;
 import android.app.Application;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 public class ListViewActivity  extends Activity {
     ListView listView;
+
     String[] course;
     ArrayList<HashMap<String,String>> data;
     @Override
@@ -44,7 +48,11 @@ public class ListViewActivity  extends Activity {
 
             }
         });
+
+
+
     }
+
     protected ArrayList<HashMap<String,String>> getData(){
         ArrayList<HashMap<String,String>> list=new ArrayList<>();
         for (int i = 0; i < 50; i++) {

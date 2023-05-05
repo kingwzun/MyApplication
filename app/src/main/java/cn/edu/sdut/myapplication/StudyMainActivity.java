@@ -2,6 +2,9 @@ package cn.edu.sdut.myapplication;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
@@ -20,6 +23,11 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TimePicker;
 import android.widget.Toast;
+
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.PrintWriter;
 
 public class StudyMainActivity extends AppCompatActivity {
     Chronometer jishiqi;
@@ -58,6 +66,7 @@ public class StudyMainActivity extends AppCompatActivity {
          btnDatetimeDialog=findViewById(R.id.btn_datetime_dialog);
         course=getResources().getStringArray(R.array.course);
 
+        writeFile();
         btnDateDialog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -150,6 +159,12 @@ public class StudyMainActivity extends AppCompatActivity {
                 shijian=10;
                 jishiqi.start();
                 btnSendSms.setEnabled(false);
+
+                BlankFragment2 fragment2=new BlankFragment2();
+                FragmentManager manager = getSupportFragmentManager();
+                FragmentTransaction transaction = manager.beginTransaction();
+                transaction.replace(R.id.frame_layout1,fragment2);
+                transaction.commit();
             }
         });
         //R是Android内部的类，自动的掌管Android的资源
@@ -180,6 +195,16 @@ public class StudyMainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
+
+
+        BlankFragment1 fragment1=new BlankFragment1();
+        FragmentManager manager = getSupportFragmentManager();
+        FragmentTransaction transaction = manager.beginTransaction();
+        transaction.replace(R.id.frame_layout1,fragment1);
+        transaction.commit();
+
     }
 
     @Override
@@ -195,5 +220,22 @@ public class StudyMainActivity extends AppCompatActivity {
             }
         }
         return true;
+    }
+    protected void writeFile(){
+        try{
+            FileOutputStream fos = openFileOutput("aa.txt", MODE_PRIVATE);
+            //方法1
+            PrintWriter printWriter = new PrintWriter(fos);
+            printWriter.write("323223");
+            //方法2
+            String content = "helloWorld";                     // 保存数据
+            fos.write(content.getBytes());
+
+            fos.close();
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
