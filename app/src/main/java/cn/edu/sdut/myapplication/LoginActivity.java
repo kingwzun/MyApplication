@@ -73,14 +73,16 @@ public class LoginActivity extends AppCompatActivity {
         sp=getSharedPreferences("abcd",MODE_PRIVATE);
         editor=sp.edit();
 
+        edit_xm.setText(sp.getString("xm",""));
+        edit_mm.setText(sp.getString("mm",""));
+        checkbox.setChecked(sp.getBoolean("check",false)); // 恢复时也把记住密码的勾选上
 
+        //进度条
         progressDialog=new ProgressDialog(this);
         progressDialog.setTitle("提示信息");
         progressDialog.setMessage("正在验证中");
         progressDialog.setCancelable(false);//设置不允许 用户点击返回键取消
 
-        edit_xm.setText(sp.getString("xm",""));
-        edit_mm.setText(sp.getString("mm",""));
         //Handler是一套Android 消息传递机制,主要用于线程间通信
         handler=new Handler(){
             @Override
@@ -90,6 +92,7 @@ public class LoginActivity extends AppCompatActivity {
                 int result=msg.what;
                 switch (result){
                     case 1:
+
                         Intent intent=new Intent(LoginActivity.this, StudyMainActivity.class);
 //                        intent.putExtra("xm",xm);
                         startActivity(intent);
@@ -134,7 +137,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked){
-                    Toast.makeText(LoginActivity.this,"记住密码", Toast.LENGTH_LONG);
+                    Toast.makeText(LoginActivity.this,"记住用户名", Toast.LENGTH_SHORT).show();
                 }else{
 
                 }
@@ -154,6 +157,19 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                xm=edit_xm.getText().toString();
+                mm=edit_mm.getText().toString();
+                if(checkbox.isChecked()){
+                    editor.putString("xm",xm);
+                    editor.putString("mm",mm);
+
+                }else{
+                    editor.putString("xm","");
+                    editor.putString("mm","");
+                }
+                editor.putBoolean("check",checkbox.isChecked());
+                editor.commit();//must commit
+
                 progressDialog.show();
                 //goto login_sub_thread
                 new LoginThread().start();
@@ -217,16 +233,7 @@ public class LoginActivity extends AppCompatActivity {
         @Override
         public void run(){
 
-//            if(checkbox.isChecked()){
-//                editor.putString("xm",xm);
-//                editor.putString("mm",mm);
-//
-//            }else{
-//                editor.putString("xm","");
-//                editor.putString("mm","");
-//            }
-//            editor.putBoolean("check",checkbox.isChecked());
-//            progressDialog.show();//show
+
 //
 //            String userType="学生";
 ////                ----------方法1：使用RadioButton-------------
@@ -251,7 +258,10 @@ public class LoginActivity extends AppCompatActivity {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+
             Message message=new Message();
+
+
             if(xm.equals("123")){
                 if(mm.equals("123")){//login succeed
                     message.what=1;
