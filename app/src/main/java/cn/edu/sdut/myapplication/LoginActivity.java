@@ -43,47 +43,55 @@ public class LoginActivity extends AppCompatActivity {
     CheckBox  checkbox;
     Handler handler;
     ProgressDialog progressDialog;
-
+    String xm,mm;
     SharedPreferences sp;
     SharedPreferences.Editor editor;
 //    SharedPreferences
+    private void setFindViewById(){
+       btnLogin=findViewById(R.id.btn_my_login);
+       btnView=findViewById(R.id.btnViewDome);
+       btnSeasons=findViewById(R.id.btnSeasonDome);
+       btnMyHome=findViewById(R.id.btn_my_home);
+       btnMyRegister=findViewById(R.id.btn_my_register);
+
+       edit_xm=findViewById(R.id.edit_login);
+       edit_mm = findViewById(R.id.edit_register);
+       toggle= findViewById(R.id.TgBtm);
+       rb_js= findViewById(R.id.rb_js);
+       rb_xs= findViewById(R.id.rb_xs);
+       radioGroup=findViewById(R.id.usertype);
+       checkbox=findViewById(R.id.checkbox);
+   }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.constraint_login);
+        fullScreenTool();//full screen
+        setFindViewById();
+
+
         sp=getSharedPreferences("abcd",MODE_PRIVATE);
         editor=sp.edit();
 
-        setContentView(R.layout.constraint_login);
-        btnLogin=findViewById(R.id.btn_my_login);
-        btnView=findViewById(R.id.btnViewDome);
-        btnSeasons=findViewById(R.id.btnSeasonDome);
-        btnMyHome=findViewById(R.id.btn_my_home);
-        btnMyRegister=findViewById(R.id.btn_my_register);
-
-        edit_xm=findViewById(R.id.edit_login);
-        edit_mm = findViewById(R.id.edit_register);
-        toggle= findViewById(R.id.TgBtm);
-        rb_js= findViewById(R.id.rb_js);
-        rb_xs= findViewById(R.id.rb_xs);
-        radioGroup=findViewById(R.id.usertype);
-        checkbox=findViewById(R.id.checkbox);
 
         progressDialog=new ProgressDialog(this);
         progressDialog.setTitle("提示信息");
         progressDialog.setMessage("正在验证中");
+        progressDialog.setCancelable(false);//设置不允许 用户点击返回键取消
 
         edit_xm.setText(sp.getString("xm",""));
         edit_mm.setText(sp.getString("mm",""));
-
-        progressDialog.setCancelable(false);//设置不允许 用户点击返回键取消
+        //Handler是一套Android 消息传递机制,主要用于线程间通信
         handler=new Handler(){
             @Override
             public void handleMessage(@NonNull Message msg) {
                 super.handleMessage(msg);
+                progressDialog.dismiss();//close progressDialog
                 int result=msg.what;
                 switch (result){
                     case 1:
                         Intent intent=new Intent(LoginActivity.this, StudyMainActivity.class);
+//                        intent.putExtra("xm",xm);
                         startActivity(intent);
                         break;
                     case 2:
@@ -96,7 +104,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         };
 
-        fullScreenTool();
+
 
 
 
@@ -137,6 +145,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent=new Intent(LoginActivity.this, WebViewActivity.class);
                 startActivity(intent);
+
             }
         });
 
@@ -145,37 +154,14 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String xm=edit_xm.getText().toString();
-                String mm=edit_mm.getText().toString();
-                if(checkbox.isChecked()){
-                    editor.putString("xm",xm);
-                    editor.putString("mm",mm);
-
-                }else{
-                    editor.putString("xm","");
-                    editor.putString("mm","");
-                }
-                editor.putBoolean("check",checkbox.isChecked());
-                progressDialog.show();//show
-
-                String userType="学生";
-//                ----------方法1：使用RadioButton-------------
-//                if(rb_js.isChecked()){
-//                    userType="教师";
-//                }
-//                -------方法2:使用RadioGroup----------------
-                int rb_id=radioGroup.getCheckedRadioButtonId();
-                if(rb_id==rb_js.getId()){
-                    userType="教师";
-                }
-
-                Intent intent = new Intent(LoginActivity.this, StudyMainActivity.class);
-                startActivity(intent);
-                progressDialog.dismiss();//delete
-//               关闭登录界面（点击返回按键不会再回到登陆界面）
-//                LoginActivity.this.finish();
+                progressDialog.show();
+                //goto login_sub_thread
+                new LoginThread().start();
+                //关闭登录界面（点击返回按键不会再回到登陆界面）
+                //LoginActivity.this.finish();
             }
         });
+
 
         //四季按钮动作
         btnSeasons.setOnClickListener(new View.OnClickListener() {
@@ -199,15 +185,6 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-//        btnMyLogin
-//        btnMyLogin.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                //jump activity_test.xml
-//                Intent intent =new Intent(LoginActivity.this,MyLoginActivity.class);
-//                startActivity(intent);
-//            }
-//        });
 
         edit_xm.addTextChangedListener(new TextWatcher() {
             @Override
@@ -234,28 +211,57 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
         });
-        class LoginThread extends Thread{
-            public void run(){
-                String xm=edit_xm.getText().toString();
-                String mm=edit_mm.getText().toString();
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    throw new RuntimeException(e);
-                }
-                Message message=new Message();
-                if(xm.equals("123")){
-                    if(mm.equals("123")){
-                        message.what=1;
-                    }else message.what=2;
 
-                }else message.what=3;
-                handler.sendMessage(message);
-                super.run();
+    }
+    class LoginThread extends Thread{
+        @Override
+        public void run(){
+
+//            if(checkbox.isChecked()){
+//                editor.putString("xm",xm);
+//                editor.putString("mm",mm);
+//
+//            }else{
+//                editor.putString("xm","");
+//                editor.putString("mm","");
+//            }
+//            editor.putBoolean("check",checkbox.isChecked());
+//            progressDialog.show();//show
+//
+//            String userType="学生";
+////                ----------方法1：使用RadioButton-------------
+////                if(rb_js.isChecked()){
+////                    userType="教师";
+////                }
+////                -------方法2:使用RadioGroup----------------
+//            int rb_id=radioGroup.getCheckedRadioButtonId();
+//            if(rb_id==rb_js.getId()){
+//                userType="教师";
+//            }
+//
+//            Intent intent = new Intent(LoginActivity.this, StudyMainActivity.class);
+//            startActivity(intent);
+//            progressDialog.dismiss();//delete
+
+
+            xm=edit_xm.getText().toString();
+            mm=edit_mm.getText().toString();
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
+            Message message=new Message();
+            if(xm.equals("123")){
+                if(mm.equals("123")){//login succeed
+                    message.what=1;
+                }else message.what=2;//wrong password
+
+            }else message.what=3;//wrong username
+            handler.sendMessage(message);
+            super.run();
         }
     }
-
     @Override
     protected void onStart() {
         Log.d("smzg","onStart:");
